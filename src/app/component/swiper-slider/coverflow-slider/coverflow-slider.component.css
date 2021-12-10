@@ -1,0 +1,23 @@
+.swiper {
+  height: 250px;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: auto;
+  height: 200px;
+  /*-webkit-box-reflect: below 1px linear-gradient(transparent,transparent,#0006);*/
+}
+
+.swiper-slide img {
+  display: block;
+  height: 100%;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #dddddd;
+}

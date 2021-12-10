@@ -1,0 +1,82 @@
+<mat-list>
+  <div mat-subheader id="logo-img">
+    <div class="logo-img" [routerLink]="['/']" routerLinkActive="$router_link-active$"></div>
+  </div>
+  <div id="list-sidernav">
+    <mat-list-item class="sider-list-item">
+      <mat-icon mat-list-icon>library_music</mat-icon>
+      <div mat-line>Cá nhân</div>
+    </mat-list-item>
+    <mat-list-item class="sider-list-item">
+      <mat-icon mat-list-icon>radar</mat-icon>
+      <div mat-line>Khám Phá</div>
+    </mat-list-item>
+    <mat-list-item class="sider-list-item">
+      <mat-icon mat-list-icon>insights</mat-icon>
+      <div mat-line>#zingchart</div>
+    </mat-list-item>
+    <mat-list-item class="sider-list-item">
+      <mat-icon mat-list-icon>audiotrack</mat-icon>
+      <div mat-line>Radio</div>
+    </mat-list-item >
+    <mat-list-item class="sider-list-item">
+      <mat-icon mat-list-icon>playlist_add_check</mat-icon>
+      <div mat-line>Theo doi</div>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+    <div class="sub-list">
+      <mat-list-item class="sider-list-item">
+        <mat-icon mat-list-icon>music_note</mat-icon>
+        <div mat-line>Nhạc mới</div>
+      </mat-list-item>
+      <mat-list-item class="sider-list-item">
+        <mat-icon mat-list-icon>emoji_symbols</mat-icon>
+        <div mat-line>Thể loại</div>
+      </mat-list-item>
+      <mat-list-item class="sider-list-item">
+        <mat-icon mat-list-icon>star_outline</mat-icon>
+        <div mat-line>Top 100</div>
+      </mat-list-item>
+      <mat-list-item class="sider-list-item">
+        <mat-icon mat-list-icon>music_video</mat-icon>
+        <div mat-line>MV</div>
+      </mat-list-item>
+      <div style="padding: 10px 20px">
+      <div class="vip-subcribe">
+        <span>Nghe nhạc không quảng cáo cung kho nhạc vip</span>
+        <button type="button " class="btn btn-warning rounded-pill text-uppercase">Nâng cấp vip</button>
+      </div>
+      </div>
+      <div class="sub-child">
+        <mat-list>
+          <div mat-subheader >
+            <span class="text-uppercase" style="color: #000000de">Thư viện</span>
+          </div>
+          <div class="list-sidernav">
+            <mat-list-item class="sider-list-item">
+              <mat-icon mat-list-icon>library_music</mat-icon>
+              <div mat-line>Bài hát</div>
+            </mat-list-item>
+            <mat-list-item class="sider-list-item">
+              <mat-icon mat-list-icon>list</mat-icon>
+              <div mat-line>Playlist</div>
+            </mat-list-item>
+            <mat-list-item class="sider-list-item">
+              <mat-icon mat-list-icon>history</mat-icon>
+              <div mat-line>Gần đây</div>
+            </mat-list-item>
+
+          </div>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+  <mat-list-item>
+    <mat-icon mat-list-icon>library_add</mat-icon>
+    <div class="btn">Tạo playlist mới</div>
+  </mat-list-item>
+
+</mat-list>
+
+

@@ -1,0 +1,70 @@
+<div class="player-controls clickable">
+  <div class="level player-controls__container">
+    <div class="player-controls-left level-left">
+      <div class="media animate">
+        <div #cdrotate class="media-left rotate " [class.play]="audioPlay?.paused">
+          <a>
+            <div (click)="loadUrl()" class="thumbnail-wrapper animate">
+              <img src="{{listSong[currentSong].image}}" width="100%" height="100%">
+            </div>
+          </a>
+        </div>
+        <div class="media-center">
+          <span class="song-info-wrapper">
+            {{listSong[currentSong].name}}
+          </span>
+          <span class="is-one-line is-truncate subtitle">{{listSong[currentSong].decription}}</span>
+        </div>
+        <div class="media-right">
+          <div class="level">
+            <span class="material-icons level-icon">favorite_border</span>
+            <span class="material-icons level-icon">more_horiz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="player-controls__player-bar level-center">
+      <div class="player-bar">
+        <div class="player-bar-controls">
+          <span class="material-icons" [class.isShowBg]="isDisorder" (click)="setDisorder()">shuffle</span>
+          <span class="material-icons" (click)="prev()">keyboard_double_arrow_left</span>
+          <span *ngIf="!showPlayBtn" class="material-icons" (click)="pause()">pause</span>
+          <span *ngIf="showPlayBtn" class="material-icons" (click)="play()">play_arrow</span>
+          <span class="material-icons" (click)="next()">keyboard_double_arrow_right</span>
+          <span class="material-icons" [class.isShowBg]="isRepeat" (click)="setRepeat()">all_inclusive</span>
+        </div>
+      </div>
+      <div class="duration-bar">
+        <div class="duration-bar-vulue duration-curent-number">{{currentTime}}</div>
+        <div class="duration-box" style="padding-top:5px ">
+          <input class="progress" type="range" [value]="seek" step="1" min="0" max="{{seekMax}}"
+                 (input)="setCurrentTime($event)">
+        </div>
+        <div style="animation: 6s" class="duration-bar-vulue duration-end-number">{{formatTime(seekMax)}}</div>
+      </div>
+    </div>
+    <div class="player-controls-right level-right">
+      <div class="level-item">
+        <span class="material-icons">music_video</span>
+      </div>
+      <div class="level-item">
+        <span class="material-icons">mic</span>
+      </div>
+      <div class="level-item">
+        <span class="material-icons">branding_watermark</span>
+      </div>
+      <div class="volumeControl level-item" (click)="setVolume()">
+        <span class="material-icons">volume_up</span>
+        <div class="inputVolume" [class.setVol]="setVol">
+          <input  class="progress" type="range" value="0" step="1" min="0" max="100" [(ngModel)]="volume"
+                 (input)="changeVolume()">
+        </div>
+      </div>
+      <div class="level-item">
+        <span class="material-icons">queue_music</span>
+      </div>
+    </div>
+  </div>
+</div>

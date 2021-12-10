@@ -1,0 +1,43 @@
+<mat-drawer-container class="example-container" autosize >
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+    <app-sidernav></app-sidernav>
+  </mat-drawer>
+
+  <div class="example-sidenav">
+    <mat-toolbar class="toolbar" >
+      <div class="toolbar-left">
+        <div>
+          <span class="material-icons directional-icon">west</span>
+          <span class="material-icons directional-icon">east</span>
+        </div>
+        <div class="form-group form-inline">
+          <label class="search-label" for="search"><span class="material-icons">search</span></label>
+          <input type="text"
+                 class="form-control" name="search" id="search" aria-describedby="searchHId"
+                 placeholder="    Nhap ten bai hat...">
+        </div>
+      </div>
+      <div class="content toolbar-right">
+        <span class="material-icons">dark_mode</span>
+        <span class="material-icons">settings</span>
+        <span class="material-icons">manage_accounts</span>
+      </div>
+    </mat-toolbar>
+
+<!--    contain view-->
+    <div class="contain-view-change">
+<!--    <app-deitail-song></app-deitail-song>-->
+<!--    <app-home></app-home>-->
+
+<!--    <button type="button" mat-button (click)="drawer.toggle()" color="accent">-->
+<!--      Toggle sidenav-->
+<!--    </button>-->
+    <router-outlet></router-outlet>
+  </div>
+  </div>
+</mat-drawer-container>
+<div id="play-current">
+  <app-play-current></app-play-current>
+</div>
+
+

@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap');
+
+* {
+  --alpha-bg: hsla(0, 90%, 38%, 0.1);
+  --bg-container : #ffffff;
+  --text-container: #333;
+  --bg-sidernav : #f2f2f2
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /*font-family: 'Inter', sans-serif;*/
+  /*font-size: 13px;*/
+}
+
+/*.material-icons{*/
+/*  font-family: "Material Icons";*/
+/*}*/
+
+body {
+  /*font-family: 'Inter', sans-serif;*/
+}
+
+
+
+mat-drawer-container {
+  background: var(--bg-container) ;/*#ffffff*/
+  /*height: calc(100% - 90px);*/
+}
+
+mat-drawer {
+  background: var(--bg-sidernav);
+  /*height: calc(100% - 90px);*/
+}
+
+.mat-drawer-inner-container {}
+
+.example-container {
+  height: calc(100vh - 90px);
+  /*border: 1px solid rgba(0, 0, 0, 0.5);*/
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  height: 100%;
+  overflow: auto;
+  /*background: #f5f5f5;*/
+}
+
+mat-drawer {
+  width: 240px;
+}
+
+/*mat-form-field {*/
+/*  height: fit-content;*/
+/*  */
+/*}*/
+mat-toolbar.toolbar {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
+  box-shadow: 0 0 8px 0 #dddddd;
+}
+
+mat-toolbar > .toolbar-left,
+mat-toolbar > .toolbar-left > div {
+  display: flex;
+  align-items: center;
+}
+
+mat-toolbar > .toolbar-left > .form-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+mat-toolbar > .toolbar-left {
+  width: 70%;
+}
+
+.directional-icon {
+  color: #dddddd;
+}
+
+.toolbar-left input {
+  position: relative;
+  border-radius: 20px;
+  height: 40px;
+  /*min-width: 540px;*/
+  padding-left: 50px;
+  flex: 1;
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.search-label {
+  position: relative;
+  top: 0;
+  left: 40px;
+  color: #ddd;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-right > .material-icons {
+  margin: auto 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  border-radius: 999px;
+}
+
+.contain-view-change {
+  height: 100%;
+  padding: 32px 32px 0;
+  overflow: auto;
+  height: calc(100% - 70px);
+}
+
+#play-current {
+  height: 90px;
+  width: 100%;
+  box-shadow: 5px 0 0 0 #dddddd;
+  border-top: 1px solid #dddddd;
+  /*display: flex;*/
+  /*!*justify-content: center;*!*/
+  /*align-items: center;*/
+}
+
+
+
