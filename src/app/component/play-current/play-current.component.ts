@@ -102,7 +102,7 @@ export class PlayCurrentComponent implements OnInit {
             this.audioPlay.play()
           }
         }
-        // console.log(event.type);
+        console.log(event.type);
       }
 
       this.addEvents(this.audioPlay, this.audioEvent, handler);
@@ -192,7 +192,9 @@ export class PlayCurrentComponent implements OnInit {
     // }
   }
 
-  changeVolume() {
+  changeVolume(event :Event) {
+    event.preventDefault()
+    event.stopPropagation();
     this.audioPlay.volume = this.volume / 100
     console.log(this.volume)
   }

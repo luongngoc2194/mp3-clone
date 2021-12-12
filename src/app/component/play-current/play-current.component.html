@@ -55,11 +55,11 @@
       <div class="level-item">
         <span class="material-icons">branding_watermark</span>
       </div>
-      <div class="volumeControl level-item" (click)="setVolume()">
-        <span class="material-icons">volume_up</span>
+      <div class="volumeControl level-item" >
+        <span class="material-icons" (click)="setVolume()">volume_up</span>
         <div class="inputVolume" [class.setVol]="setVol">
           <input  class="progress" type="range" value="0" step="1" min="0" max="100" [(ngModel)]="volume"
-                 (input)="changeVolume()">
+                 (input)="changeVolume($event)">
         </div>
       </div>
       <div class="level-item">

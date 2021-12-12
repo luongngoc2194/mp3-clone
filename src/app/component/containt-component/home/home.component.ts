@@ -21,4 +21,9 @@ export class HomeComponent implements OnInit {
     event.stopPropagation();
     // alert(1)
   }
+
+    click($event: MouseEvent) {
+      console.log($event);
+      console.log(1);
+    }
 }

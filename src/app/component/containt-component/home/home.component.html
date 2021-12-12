@@ -10,13 +10,16 @@
           <img src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/2/3/d/3/23d3bfa1656027dcf914d9c3bae263eb.jpg"
                alt="">
           <div class="position-img">
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>favorite_border</mat-icon>
             </button>
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>play_circle_outline</mat-icon>
             </button>
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>more_horiz</mat-icon>
             </button>
           </div>
@@ -30,13 +33,16 @@
           <img src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/2/3/d/3/23d3bfa1656027dcf914d9c3bae263eb.jpg"
                alt="">
           <div class="position-img">
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>favorite_border</mat-icon>
             </button>
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>play_circle_outline</mat-icon>
             </button>
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>more_horiz</mat-icon>
             </button>
           </div>
@@ -50,13 +56,16 @@
           <img src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/2/3/d/3/23d3bfa1656027dcf914d9c3bae263eb.jpg"
                alt="">
           <div class="position-img">
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>favorite_border</mat-icon>
             </button>
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>play_circle_outline</mat-icon>
             </button>
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>more_horiz</mat-icon>
             </button>
           </div>
@@ -70,13 +79,16 @@
           <img src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/2/3/d/3/23d3bfa1656027dcf914d9c3bae263eb.jpg"
                alt="">
           <div class="position-img">
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>favorite_border</mat-icon>
             </button>
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>play_circle_outline</mat-icon>
             </button>
-            <button (click)="onSubmit($event)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button (click)="onSubmit($event)" mat-icon-button color="warn"
+                    aria-label="Example icon-button with a heart icon">
               <mat-icon>more_horiz</mat-icon>
             </button>
           </div>
@@ -100,33 +112,10 @@
         [slidesPerView]="4"
         [spaceBetween]="30"
         class="mySwiper">
+
         <ng-template swiperSlide>
           <div class="list-music-item">
-            <div class="item-music-image">
-              <img
-                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"
-                alt="">
-              <div class="position-img">
-                <button  mat-icon-button aria-label="Example icon-button with a heart icon">
-                  <mat-icon>favorite_border</mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon-button with a heart icon">
-                  <mat-icon>play_circle_outline</mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon-button with a heart icon">
-                  <mat-icon>more_horiz</mat-icon>
-                </button>
-              </div>
-            </div>
-            <div class="item-music-name">
-              <p>Everyday favorite</p>
-              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>
-            </div>
-          </div>
-        </ng-template>
-       <ng-template swiperSlide>
-          <div class="list-music-item">
-            <div class="item-music-image">
+            <div class="item-music-image" [routerLink]="['/deital']">
               <img
                 src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"
                 alt="">
@@ -148,8 +137,8 @@
             </div>
           </div>
         </ng-template>
-       <ng-template swiperSlide>
-          <div class="list-music-item">
+        <ng-template swiperSlide>
+          <div class="list-music-item" [routerLink]="['/deital']">
             <div class="item-music-image">
               <img
                 src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"
@@ -172,8 +161,8 @@
             </div>
           </div>
         </ng-template>
-       <ng-template swiperSlide>
-          <div class="list-music-item">
+        <ng-template swiperSlide>
+          <div class="list-music-item" [routerLink]="['/deital']">
             <div class="item-music-image">
               <img
                 src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"
@@ -196,8 +185,8 @@
             </div>
           </div>
         </ng-template>
-       <ng-template swiperSlide>
-          <div class="list-music-item">
+        <ng-template swiperSlide>
+          <div class="list-music-item" [routerLink]="['/deital']">
             <div class="item-music-image">
               <img
                 src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"
@@ -220,8 +209,8 @@
             </div>
           </div>
         </ng-template>
-       <ng-template swiperSlide>
-          <div class="list-music-item">
+        <ng-template swiperSlide>
+          <div class="list-music-item" [routerLink]="['/deital']">
             <div class="item-music-image">
               <img
                 src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"
@@ -244,8 +233,32 @@
             </div>
           </div>
         </ng-template>
-       <ng-template swiperSlide>
-          <div class="list-music-item">
+        <ng-template swiperSlide>
+          <div class="list-music-item" [routerLink]="['/deital']">
+            <div class="item-music-image">
+              <img
+                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"
+                alt="">
+              <div class="position-img">
+                <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                  <mat-icon>favorite_border</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                  <mat-icon>play_circle_outline</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                  <mat-icon>more_horiz</mat-icon>
+                </button>
+              </div>
+            </div>
+            <div class="item-music-name">
+              <p>Everyday favorite</p>
+              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="list-music-item" [routerLink]="['/deital']">
             <div class="item-music-image">
               <img
                 src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"
