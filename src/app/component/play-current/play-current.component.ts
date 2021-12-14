@@ -13,7 +13,7 @@ export class PlayCurrentComponent implements OnInit {
 
   // @ViewChild("cdrotate") cdRotate!: ElementRef;
 
-  constructor(private audioSv : AudioService) {
+  constructor(private audioSv: AudioService) {
 
   }
 
@@ -65,7 +65,7 @@ export class PlayCurrentComponent implements OnInit {
     },
 
   ]
-  playSong :any
+  playSong: any
 
   volume: number = 15;
   currentTime = '00:00:00';
@@ -74,16 +74,20 @@ export class PlayCurrentComponent implements OnInit {
   seekMax!: number
   isDisorder = false
   isRepeat = false
-  setVol=  false;
+  setVol = false;
 
   ngOnInit(): void {
-    this.audioSv.setMusic$.subscribe(data=>{
-      if(data){
-        this.playSong=data
+    this.audioSv.setMusic$.subscribe(data => {
+      if (data) {
+        this.playSong = data
         this.streamObserver(this.playSong.url).subscribe()
-        // this.audioPlay.src=data.url
-        // this.audioPlay.load()
-        // this.audioPlay.play()
+      }
+    })
+    this.audioSv.childPlay$.subscribe(data => {
+      if (data === "pause") {
+        this.pause()
+      } else if (data === 'play') {
+        this.play()
       }
     })
   }
@@ -93,7 +97,7 @@ export class PlayCurrentComponent implements OnInit {
       this.audioPlay.src = url;
       this.audioPlay.load();
       this.audioPlay.play();
-      this.audioPlay.volume = this.volume/100
+      this.audioPlay.volume = this.volume / 100
 
       const handler = (event: Event) => {
 
@@ -108,15 +112,22 @@ export class PlayCurrentComponent implements OnInit {
         this.duration = this.formatTime(this.audioPlay.duration)
         this.currentTime = this.formatTime(this.audioPlay.currentTime)
 
+
         if (this.seek === this.seekMax) {
-          if (!this.isRepeat) {
-            this.next()
-          }else {
-            this.audioPlay.play()
-          }
+          this.audioPlay.play()
         }
-        console.log(event);
+        //   if (this.seek === this.seekMax) {
+        //     if (!this.isRepeat) {
+        //       this.next()
+        //     }else {
+        //       this.audioPlay.play()
+        //     }
+        //   }
+        //   console.log(event);
+        this.audioSv.isPlay$.next({type: event.type, id: this.playSong.id})
+
       }
+
 
       this.addEvents(this.audioPlay, this.audioEvent, handler);
 
@@ -124,6 +135,7 @@ export class PlayCurrentComponent implements OnInit {
         this.audioPlay.pause();
         this.audioPlay.currentTime
         this.removeEvent(this.audioPlay, this.audioEvent, handler);
+        console.log("com me no")
       }
     })
   }
@@ -154,7 +166,7 @@ export class PlayCurrentComponent implements OnInit {
   }
 
   play() {
-    if(this.audioPlay.src===""){
+    if (this.audioPlay.src === "") {
       this.streamObserver(this.listSong[this.currentSong].url).subscribe()
     }
     this.audioPlay.play()
@@ -201,7 +213,7 @@ export class PlayCurrentComponent implements OnInit {
     // }
   }
 
-  changeVolume(event :Event) {
+  changeVolume(event: Event) {
     event.preventDefault()
     event.stopPropagation();
     this.audioPlay.volume = this.volume / 100
@@ -228,6 +240,6 @@ export class PlayCurrentComponent implements OnInit {
   }
 
   setVolume() {
-    this.setVol=!this.setVol
+    this.setVol = !this.setVol
   }
 }

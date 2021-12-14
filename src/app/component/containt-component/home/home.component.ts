@@ -15,33 +15,50 @@ SwiperCore.use([EffectCoverflow, Pagination, Autoplay]);
 export class HomeComponent implements OnInit {
 
   listAudios!: ListAudio[]
-  newList : Audio[] =[]
-  isPlay! :boolean
+  newList: Audio[] = []
+  idPlay!: number
+  isRunming: boolean = false;
 
   constructor(private audioservice: AudioService) {
   }
 
   ngOnInit(): void {
+    console.log(this.idPlay)
     this.audioservice.getAudioList().subscribe(
       data => {
         this.listAudios = data
-        // this.audios.forEach(item => {
-        //   if (item.status === 'new') {
-        //     this.newList.push(item)
-        //   }
-        // })
         console.log(this.newList)
       }
     )
+    this.audioservice.isPlay$.subscribe(data => {
+      console.log(data)
+      this.idPlay = data.id
+      if (data.type === "timeupdate") {
+        this.isRunming = true
+      } else {
+        this.isRunming = false
+      }
+    })
+
   }
 
-  onSubmit(event: Event,item :Audio) {
+  onSubmit(event: Event, item: Audio) {
     event.preventDefault()
     event.stopPropagation();
-    this.isPlay = true
+    if(this.idPlay===undefined||this.idPlay!==item.id){
     this.audioservice.setMusic$.next(item)
+    }else {
+      this.audioservice.childPlay$.next("play")
+    }
     // alert(1)
   }
+
+  onSubmit1(event: Event){
+    event.preventDefault()
+    event.stopPropagation();
+    this.audioservice.childPlay$.next("pause")
+  }
+
 
   click($event: MouseEvent) {
     console.log($event);

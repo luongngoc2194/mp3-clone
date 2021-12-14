@@ -45,16 +45,18 @@
         <ng-template swiperSlide *ngFor="let item of list.list">
           <div class="list-music-item">
             <div class="item-music-image" [routerLink]="['/deital']">
-              <img class="music-image rotate" [class.rotate]="false" [class.rotate-play]="false"
+              <img class="music-image rotate" [class.rotate]="item.id===idPlay" [class.rotate-play]="isRunming"
                 [src]=item.image
                 alt="">
               <div class="position-img">
                 <button mat-icon-button aria-label="Example icon-button with a heart icon">
                   <mat-icon>favorite_border</mat-icon>
                 </button>
-                <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onSubmit($event,item)">
+                <button *ngIf="item.id!==idPlay||(item.id===idPlay&&!isRunming)" mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onSubmit($event,item)">
                   <mat-icon>play_circle_outline</mat-icon>
                 </button>
+
+                <button *ngIf="item.id===idPlay&&isRunming" class="material-icons" (click)="onSubmit1($event)">pause</button>
                 <button mat-icon-button aria-label="Example icon-button with a heart icon">
                   <mat-icon>more_horiz</mat-icon>
                 </button>
