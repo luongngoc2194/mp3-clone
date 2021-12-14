@@ -12,4 +12,5 @@ export class DeitailSongComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }

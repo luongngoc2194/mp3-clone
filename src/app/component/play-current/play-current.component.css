@@ -32,6 +32,7 @@
 
 .level.player-controls__container .material-icons {
   font-size: 18px;
+  border: none;
 }
 
 .player-controls-left {

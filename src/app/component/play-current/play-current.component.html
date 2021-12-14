@@ -2,10 +2,11 @@
   <div class="level player-controls__container">
     <div class="player-controls-left level-left">
       <div class="media animate">
-        <div #cdrotate class="media-left rotate " [class.play]="audioPlay?.paused">
+        <div class="media-left rotate " [class.play]="audioPlay?.paused">
           <a>
             <div (click)="loadUrl()" class="thumbnail-wrapper animate">
-              <img src="{{listSong[currentSong].image}}" width="100%" height="100%">
+              <img
+                [src]='playSong?playSong.image : "https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/f/1/b/d/f1bd9d69130afb0513624431d07399e4.jpg"' width="100%" height="100%"/>
             </div>
           </a>
         </div>
@@ -28,12 +29,12 @@
     <div class="player-controls__player-bar level-center">
       <div class="player-bar">
         <div class="player-bar-controls">
-          <span class="material-icons" [class.isShowBg]="isDisorder" (click)="setDisorder()">shuffle</span>
-          <span class="material-icons" (click)="prev()">keyboard_double_arrow_left</span>
-          <span *ngIf="!showPlayBtn" class="material-icons" (click)="pause()">pause</span>
-          <span *ngIf="showPlayBtn" class="material-icons" (click)="play()">play_arrow</span>
-          <span class="material-icons" (click)="next()">keyboard_double_arrow_right</span>
-          <span class="material-icons" [class.isShowBg]="isRepeat" (click)="setRepeat()">all_inclusive</span>
+          <button class="material-icons" [class.isShowBg]="isDisorder" (click)="setDisorder()">shuffle</button>
+          <button class="material-icons" (click)="prev()" [disabled]="true">keyboard_double_arrow_left</button>
+          <button *ngIf="!showPlayBtn" class="material-icons" (click)="pause()">pause</button>
+          <button *ngIf="showPlayBtn" class="material-icons" (click)="play()">play_arrow</button>
+          <button class="material-icons" (click)="next()" [disabled]="true">keyboard_double_arrow_right</button>
+          <button class="material-icons" [class.isShowBg]="isRepeat" (click)="setRepeat()">all_inclusive</button>
         </div>
       </div>
       <div class="duration-bar">
@@ -55,10 +56,10 @@
       <div class="level-item">
         <span class="material-icons">branding_watermark</span>
       </div>
-      <div class="volumeControl level-item" >
+      <div class="volumeControl level-item">
         <span class="material-icons" (click)="setVolume()">volume_up</span>
         <div class="inputVolume" [class.setVol]="setVol">
-          <input  class="progress" type="range" value="0" step="1" min="0" max="100" [(ngModel)]="volume"
+          <input class="progress" type="range" value="0" step="1" min="0" max="100" [(ngModel)]="volume"
                  (input)="changeVolume($event)">
         </div>
       </div>

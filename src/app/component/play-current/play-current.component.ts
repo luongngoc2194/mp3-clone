@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import * as moment from "moment";
 import {Observable} from "rxjs";
 import {delay} from "rxjs/operators";
+import {AudioService} from "../../services/audio.service";
 
 @Component({
   selector: 'app-play-current',
@@ -12,7 +13,7 @@ export class PlayCurrentComponent implements OnInit {
 
   // @ViewChild("cdrotate") cdRotate!: ElementRef;
 
-  constructor() {
+  constructor(private audioSv : AudioService) {
 
   }
 
@@ -64,7 +65,9 @@ export class PlayCurrentComponent implements OnInit {
     },
 
   ]
-  volume: number = 50;
+  playSong :any
+
+  volume: number = 15;
   currentTime = '00:00:00';
   duration = '00:00:00';
   seek!: number;
@@ -74,6 +77,15 @@ export class PlayCurrentComponent implements OnInit {
   setVol=  false;
 
   ngOnInit(): void {
+    this.audioSv.setMusic$.subscribe(data=>{
+      if(data){
+        this.playSong=data
+        this.streamObserver(this.playSong.url).subscribe()
+        // this.audioPlay.src=data.url
+        // this.audioPlay.load()
+        // this.audioPlay.play()
+      }
+    })
   }
 
   streamObserver(url: any) {
@@ -81,6 +93,7 @@ export class PlayCurrentComponent implements OnInit {
       this.audioPlay.src = url;
       this.audioPlay.load();
       this.audioPlay.play();
+      this.audioPlay.volume = this.volume/100
 
       const handler = (event: Event) => {
 
@@ -102,7 +115,7 @@ export class PlayCurrentComponent implements OnInit {
             this.audioPlay.play()
           }
         }
-        console.log(event.type);
+        console.log(event);
       }
 
       this.addEvents(this.audioPlay, this.audioEvent, handler);
@@ -110,7 +123,6 @@ export class PlayCurrentComponent implements OnInit {
       return () => {
         this.audioPlay.pause();
         this.audioPlay.currentTime
-
         this.removeEvent(this.audioPlay, this.audioEvent, handler);
       }
     })
@@ -137,8 +149,8 @@ export class PlayCurrentComponent implements OnInit {
   }
 
   loadUrl() {
+    // this.streamObserver(this.listSong[this.currentSong].url).subscribe()
 
-    this.streamObserver(this.listSong[this.currentSong].url).subscribe()
   }
 
   play() {
@@ -150,19 +162,16 @@ export class PlayCurrentComponent implements OnInit {
 
   pause() {
     this.audioPlay.pause()
+    console.log('pause');
   }
 
   next() {
     if (this.isDisorder) {
-      // const now =this.currentSong
-      console.log("this song :" + this.currentSong);
       let next: number;
       do {
         next = Math.floor(Math.random() * this.listSong.length)
-        console.log("random :" + next)
       }
       while (next === this.currentSong)
-      console.log("next :" + next);
 
       this.currentSong = next
     } else {

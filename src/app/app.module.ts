@@ -14,6 +14,7 @@ import { HomeComponent } from './component/containt-component/home/home.componen
 import { CoverflowSliderComponent } from './component/swiper-slider/coverflow-slider/coverflow-slider.component';
 import {SwiperModule} from "swiper/angular";
 import { DeitailSongComponent } from './component/containt-component/deitail-song/deitail-song.component';
+import {AudioService} from "./services/audio.service";
 
 
 
@@ -37,7 +38,7 @@ import { DeitailSongComponent } from './component/containt-component/deitail-son
         SwiperModule,
 
     ],
-  providers: [],
+  providers: [AudioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

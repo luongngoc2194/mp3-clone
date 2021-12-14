@@ -116,3 +116,19 @@ button:focus {
   /* outline: 5px auto -webkit-focus-ring-color; */
 }
 
+/*.media.animate {*/
+/*  overflow: hidden;*/
+/*}*/
+
+.music-image.rotate {
+  border-radius: 999px;
+  animation: spin 4s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-image.rotate.rotate-play{
+  animation-play-state: running;
+}
+
+
+
