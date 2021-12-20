@@ -1,0 +1,197 @@
+<div class="player-queue__container">
+  <div class="player-queue__header">
+    <div class="level tab-bars">
+      <div class="level-left">
+        <div class="level-item" [class.is-active]="!showHistory" (click)="showHistory=!showHistory">
+          <h6 class="has-text-white queue-list-title">Danh sách phát</h6>
+        </div>
+        <div class="level-item" [class.is-active]="showHistory" (click)="showHistory=!showHistory">
+          <h6 class="has-text-white">Nghe gần đây</h6>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level">
+          <div class="level-item">
+            <button class="zm-btn zm-tooltip-btn is-hover-circle button" tabindex="0">
+              <i class="icon ic-clock"></i>
+            </button>
+          </div>
+          <div class="level-item">
+            <span id="queue_menu">
+              <button class="zm-btn zm-tooltip-btn is-hover-circle button" tabindex="0">
+                <i class="icon ic-more"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="player-queue__scroll">
+    <div style="position: relative; overflow: hidden; width: 100%; height: 100%;">
+      <div id="queue-scroll"
+           style="position: absolute; inset: 0px; overflow: hidden scroll; margin-right: -6px; margin-bottom: 0px;">
+        <div class="list player-queue__list" [class.present-play]=showHistory>
+          <div class="list-item media-item full-left" *ngFor="let audio of historyAudios">
+            <div class="media">
+              <div class="media-left">
+                <div class="song-thumb">
+                  <figure class="image is-40x40" title="{{audio.name}}">
+                    <img style="width: 40px" class="music-image rotate" [class.rotate]="audio.id===idPlay"
+                         [class.rotate-play]="isRunming"
+                         [src]=audio.image
+                         alt="">
+                    <span (click)="onSubmit($event,audio)" class="play-audio-btn">
+                        <button *ngIf="audio.id!==idPlay||(audio.id===idPlay&&!isRunming)" mat-icon-button
+                                aria-label="Example icon-button with a heart icon">
+                          <mat-icon>play_circle_outline</mat-icon>
+                        </button>
+
+                        <button *ngIf="audio.id===idPlay&&isRunming" class="material-icons">pause</button>
+                  </span>
+                  </figure>
+                  <div class="opacity "></div>
+                  <div class="zm-actions-container">
+                    <div class="zm-box zm-actions">
+                      <button class="zm-btn zm-tooltip-btn animation-like is-hidden active is-hover-circle button"
+                              tabindex="0">
+                        <i class="icon ic-like"></i>
+                        <i class="icon ic-like-full"></i>
+                      </button>
+                      <button class="zm-btn action-play  button" tabindex="0">
+                        <i class="icon action-play ic-play"></i>
+                      </button>
+                      <button class="zm-btn zm-tooltip-btn is-hidden is-hover-circle button" tabindex="0">
+                        <i class="icon ic-more"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <div class="title-wrapper">
+                  <span class="item-title title">
+                    <span>
+                      <span>
+                        <span>
+                          <span>{{audio.discription}}…</span>
+                        </span>
+                      </span>
+                      <span style="position: fixed; visibility: hidden; top: 0px; left: 0px;">…</span>
+                    </span>
+                  </span>
+                  </div>
+                  <h3 class="is-one-line is-truncate subtitle">
+                    <a class="is-ghost">{{audio.singer}}</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="media-right">
+                <div class="level">
+                  <div class="level-item">
+                    <button class="zm-btn zm-tooltip-btn animation-like undefined active is-hover-circle button"
+                            tabindex="0">
+                      <i class="icon ic-like"></i>
+                      <i class="icon ic-like-full"></i>
+                    </button>
+                  </div>
+                  <div class="level-item">
+                    <button class="zm-btn zm-tooltip-btn is-hover-circle button" tabindex="0">
+                      <i class="icon ic-more"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="list player-queue__list" [class.present-play]=!showHistory>
+          <div class="list-item media-item full-left">
+            <div class="media">
+              <div class="media-left">
+                <div class="song-thumb">
+                  <figure class="image is-40x40" title="{{audio?.name}}">
+                    <img style="width: 40px" class="music-image rotate" [class.rotate]="audio?.id===idPlay"
+                         [class.rotate-play]="isRunming"
+                         [src]=audio?.image
+                         alt="">
+                    <span (click)="onSubmit($event,audio)" class="play-audio-btn">
+                        <button *ngIf="audio.id!==idPlay||(audio.id===idPlay&&!isRunming)" mat-icon-button
+                                aria-label="Example icon-button with a heart icon">
+                          <mat-icon>play_circle_outline</mat-icon>
+                        </button>
+
+                        <button *ngIf="audio.id===idPlay&&isRunming" class="material-icons">pause</button>
+                  </span>
+                  </figure>
+                  <div class="opacity "></div>
+                  <div class="zm-actions-container">
+                    <div class="zm-box zm-actions">
+                      <button class="zm-btn zm-tooltip-btn animation-like is-hidden active is-hover-circle button"
+                              tabindex="0">
+                        <i class="icon ic-like"></i>
+                        <i class="icon ic-like-full"></i>
+                      </button>
+                      <button class="zm-btn action-play  button" tabindex="0">
+                        <i class="icon action-play ic-play"></i>
+                      </button>
+                      <button class="zm-btn zm-tooltip-btn is-hidden is-hover-circle button" tabindex="0">
+                        <i class="icon ic-more"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <div class="title-wrapper">
+                  <span class="item-title title">
+                    <span>
+                      <span>
+                        <span>
+                          <span>{{audio?.discription}}…</span>
+                        </span>
+                      </span>
+                      <span style="position: fixed; visibility: hidden; top: 0px; left: 0px;">…</span>
+                    </span>
+                  </span>
+                  </div>
+                  <h3 class="is-one-line is-truncate subtitle">
+                    <a class="is-ghost">{{audio?.singer}}</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="media-right">
+                <div class="level">
+                  <div class="level-item">
+                    <button class="zm-btn zm-tooltip-btn animation-like undefined active is-hover-circle button"
+                            tabindex="0">
+                      <i class="icon ic-like"></i>
+                      <i class="icon ic-like-full"></i>
+                    </button>
+                  </div>
+                  <div class="level-item">
+                    <button class="zm-btn zm-tooltip-btn is-hover-circle button" tabindex="0">
+                      <i class="icon ic-more"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="track-horizontal"
+           style="position: absolute; height: 6px; transition: opacity 200ms ease 0s; opacity: 0;">
+        <div
+          style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); width: 0px;">
+
+        </div>
+      </div>
+      <div class="track-vertical"
+           style="position: absolute; width: 4px; transition: opacity 200ms ease 0s; opacity: 0; right: 2px; top: 2px; bottom: 2px; z-index: 100;">
+        <div class="thumb-vertical"
+             style="position: relative; display: block; width: 100%; height: 274px; transform: translateY(0px);">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
