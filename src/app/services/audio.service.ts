@@ -14,6 +14,6 @@ export class AudioService {
 
   setMusic$ = new BehaviorSubject<any>('');
   isPlay$ = new BehaviorSubject<any>({});
-  childPlay$ = new BehaviorSubject<any>('')
+  childPlay$ = new BehaviorSubject<any>(' ')
   constructor() { }
 }

@@ -48,16 +48,22 @@ export class HomeComponent implements OnInit {
     if(this.idPlay===undefined||this.idPlay!==item.id){
     this.audioservice.setMusic$.next(item)
     }else {
-      this.audioservice.childPlay$.next("play")
+      if(this.isRunming){
+        this.audioservice.childPlay$.next("pause")
+      }else {
+        this.audioservice.childPlay$.next("play")
+      }
+
+
     }
     // alert(1)
   }
 
-  onSubmit1(event: Event){
-    event.preventDefault()
-    event.stopPropagation();
-    this.audioservice.childPlay$.next("pause")
-  }
+  // onSubmit1(event: Event){
+  //   event.preventDefault()
+  //   event.stopPropagation();
+  //   this.audioservice.childPlay$.next("pause")
+  // }
 
 
   click($event: MouseEvent) {

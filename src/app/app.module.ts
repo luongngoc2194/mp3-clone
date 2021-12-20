@@ -15,6 +15,7 @@ import { CoverflowSliderComponent } from './component/swiper-slider/coverflow-sl
 import {SwiperModule} from "swiper/angular";
 import { DeitailSongComponent } from './component/containt-component/deitail-song/deitail-song.component';
 import {AudioService} from "./services/audio.service";
+import { HistoryPlayComponent } from './component/history-play/history-play.component';
 
 
 
@@ -26,7 +27,8 @@ import {AudioService} from "./services/audio.service";
     PlayCurrentComponent,
     HomeComponent,
     CoverflowSliderComponent,
-    DeitailSongComponent
+    DeitailSongComponent,
+    HistoryPlayComponent
   ],
     imports: [
         BrowserModule,

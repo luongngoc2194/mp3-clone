@@ -75,6 +75,7 @@ export class PlayCurrentComponent implements OnInit {
   isDisorder = false
   isRepeat = false
   setVol = false;
+  showHistory:boolean= false;
 
   ngOnInit(): void {
     this.audioSv.setMusic$.subscribe(data => {
@@ -135,7 +136,6 @@ export class PlayCurrentComponent implements OnInit {
         this.audioPlay.pause();
         this.audioPlay.currentTime
         this.removeEvent(this.audioPlay, this.audioEvent, handler);
-        console.log("com me no")
       }
     })
   }

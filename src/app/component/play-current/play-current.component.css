@@ -51,6 +51,7 @@
   height: 72px;
   width: 72px;
   padding: 8px;
+  position: relative;
 }
 
 .thumbnail-wrapper.animate img {
@@ -224,5 +225,21 @@ div#mat-menu-panel-0 {
   height: 8px;
   background-color: var(--primary-color);
   cursor: pointer;
+}
+
+.history-play {
+  width: 330px;
+  position: fixed;
+  top:0;
+  bottom: 90px;
+  right: 0px;
+  z-index: 100000000000000000;
+  background: var(--bg-container) ;
+  box-shadow: 0 0 8px 0 #dddddd;
+  display: none;
+}
+
+.hideHistoryComponent {
+  display: block;
 }
 

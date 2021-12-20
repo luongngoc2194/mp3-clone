@@ -1,41 +1,42 @@
 <div class="container home-container">
   <app-coverflow-slider></app-coverflow-slider>
-<!--  <div class="list-music history-list">-->
-<!--    <div class="list-music-heading">-->
-<!--      <h2>Gần đây</h2>-->
-<!--    </div>-->
-<!--    <div class="list-music-content">-->
-<!--      <div class="list-music-item">-->
-<!--        <div class="item-music-image" [routerLink]="['/deital']">-->
-<!--          <img [src]=item.image-->
-<!--               alt="">-->
-<!--          <div class="position-img">-->
-<!--            <button (click)="onSubmit($event,item)" mat-icon-button color="warn"-->
-<!--                    aria-label="Example icon-button with a heart icon">-->
-<!--              <mat-icon>favorite_border</mat-icon>-->
-<!--            </button>-->
-<!--&lt;!&ndash;            <button (click)="onSubmit($event)" mat-icon-button color="warn"&ndash;&gt;-->
-<!--&lt;!&ndash;                    aria-label="Example icon-button with a heart icon">&ndash;&gt;-->
-<!--&lt;!&ndash;              <mat-icon>play_circle_outline</mat-icon>&ndash;&gt;-->
-<!--&lt;!&ndash;            </button>&ndash;&gt;-->
-<!--&lt;!&ndash;            <button (click)="onSubmit($event)" mat-icon-button color="warn"&ndash;&gt;-->
-<!--&lt;!&ndash;                    aria-label="Example icon-button with a heart icon">&ndash;&gt;-->
-<!--&lt;!&ndash;              <mat-icon>more_horiz</mat-icon>&ndash;&gt;-->
-<!--&lt;!&ndash;            </button>&ndash;&gt;-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="item-music-name">-->
-<!--          <p>{{item.name}}</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <!--  <div class="list-music history-list">-->
+  <!--    <div class="list-music-heading">-->
+  <!--      <h2>Gần đây</h2>-->
+  <!--    </div>-->
+  <!--    <div class="list-music-content">-->
+  <!--      <div class="list-music-item">-->
+  <!--        <div class="item-music-image" [routerLink]="['/deital']">-->
+  <!--          <img [src]=item.image-->
+  <!--               alt="">-->
+  <!--          <div class="position-img">-->
+  <!--            <button (click)="onSubmit($event,item)" mat-icon-button color="warn"-->
+  <!--                    aria-label="Example icon-button with a heart icon">-->
+  <!--              <mat-icon>favorite_border</mat-icon>-->
+  <!--            </button>-->
+  <!--&lt;!&ndash;            <button (click)="onSubmit($event)" mat-icon-button color="warn"&ndash;&gt;-->
+  <!--&lt;!&ndash;                    aria-label="Example icon-button with a heart icon">&ndash;&gt;-->
+  <!--&lt;!&ndash;              <mat-icon>play_circle_outline</mat-icon>&ndash;&gt;-->
+  <!--&lt;!&ndash;            </button>&ndash;&gt;-->
+  <!--&lt;!&ndash;            <button (click)="onSubmit($event)" mat-icon-button color="warn"&ndash;&gt;-->
+  <!--&lt;!&ndash;                    aria-label="Example icon-button with a heart icon">&ndash;&gt;-->
+  <!--&lt;!&ndash;              <mat-icon>more_horiz</mat-icon>&ndash;&gt;-->
+  <!--&lt;!&ndash;            </button>&ndash;&gt;-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <div class="item-music-name">-->
+  <!--          <p>{{item.name}}</p>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
   <div class="list-music maybe-list" *ngFor="let list of listAudios">
-    <div class="list-music-heading">
-      <h2>{{list.listname}}</h2>
-    </div>
+
     <div class="list-music-content">
+      <div class="list-music-heading">
+        <h2>{{list.listname}}</h2>
+      </div>
       <swiper
         [navigation]="true"
         [slidesPerView]="4"
@@ -46,17 +47,20 @@
           <div class="list-music-item">
             <div class="item-music-image" [routerLink]="['/deital']">
               <img class="music-image rotate" [class.rotate]="item.id===idPlay" [class.rotate-play]="isRunming"
-                [src]=item.image
-                alt="">
+                   [src]=item.image
+                   alt="">
               <div class="position-img">
                 <button mat-icon-button aria-label="Example icon-button with a heart icon">
                   <mat-icon>favorite_border</mat-icon>
                 </button>
-                <button *ngIf="item.id!==idPlay||(item.id===idPlay&&!isRunming)" mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onSubmit($event,item)">
+                <span (click)="onSubmit($event,item)">
+                <button *ngIf="item.id!==idPlay||(item.id===idPlay&&!isRunming)" mat-icon-button
+                        aria-label="Example icon-button with a heart icon" >
                   <mat-icon>play_circle_outline</mat-icon>
                 </button>
 
-                <button *ngIf="item.id===idPlay&&isRunming" class="material-icons" (click)="onSubmit1($event)">pause</button>
+                <button *ngIf="item.id===idPlay&&isRunming" class="material-icons">pause</button>
+                  </span>
                 <button mat-icon-button aria-label="Example icon-button with a heart icon">
                   <mat-icon>more_horiz</mat-icon>
                 </button>
@@ -68,150 +72,150 @@
             </div>
           </div>
         </ng-template>
-<!--        <ng-template swiperSlide>-->
-<!--          <div class="list-music-item" [routerLink]="['/deital']">-->
-<!--            <div class="item-music-image">-->
-<!--              <img-->
-<!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
-<!--                alt="">-->
-<!--              <div class="position-img">-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>favorite_border</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>play_circle_outline</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>more_horiz</mat-icon>-->
-<!--                </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="item-music-name">-->
-<!--              <p>Everyday favorite</p>-->
-<!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </ng-template>-->
-<!--        <ng-template swiperSlide>-->
-<!--          <div class="list-music-item" [routerLink]="['/deital']">-->
-<!--            <div class="item-music-image">-->
-<!--              <img-->
-<!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
-<!--                alt="">-->
-<!--              <div class="position-img">-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>favorite_border</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>play_circle_outline</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>more_horiz</mat-icon>-->
-<!--                </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="item-music-name">-->
-<!--              <p>Everyday favorite</p>-->
-<!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </ng-template>-->
-<!--        <ng-template swiperSlide>-->
-<!--          <div class="list-music-item" [routerLink]="['/deital']">-->
-<!--            <div class="item-music-image">-->
-<!--              <img-->
-<!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
-<!--                alt="">-->
-<!--              <div class="position-img">-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>favorite_border</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>play_circle_outline</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>more_horiz</mat-icon>-->
-<!--                </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="item-music-name">-->
-<!--              <p>Everyday favorite</p>-->
-<!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </ng-template>-->
-<!--        <ng-template swiperSlide>-->
-<!--          <div class="list-music-item" [routerLink]="['/deital']">-->
-<!--            <div class="item-music-image">-->
-<!--              <img-->
-<!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
-<!--                alt="">-->
-<!--              <div class="position-img">-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>favorite_border</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>play_circle_outline</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>more_horiz</mat-icon>-->
-<!--                </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="item-music-name">-->
-<!--              <p>Everyday favorite</p>-->
-<!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </ng-template>-->
-<!--        <ng-template swiperSlide>-->
-<!--          <div class="list-music-item" [routerLink]="['/deital']">-->
-<!--            <div class="item-music-image">-->
-<!--              <img-->
-<!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
-<!--                alt="">-->
-<!--              <div class="position-img">-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>favorite_border</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>play_circle_outline</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>more_horiz</mat-icon>-->
-<!--                </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="item-music-name">-->
-<!--              <p>Everyday favorite</p>-->
-<!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </ng-template>-->
-<!--        <ng-template swiperSlide>-->
-<!--          <div class="list-music-item" [routerLink]="['/deital']">-->
-<!--            <div class="item-music-image">-->
-<!--              <img-->
-<!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
-<!--                alt="">-->
-<!--              <div class="position-img">-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>favorite_border</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>play_circle_outline</mat-icon>-->
-<!--                </button>-->
-<!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
-<!--                  <mat-icon>more_horiz</mat-icon>-->
-<!--                </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="item-music-name">-->
-<!--              <p>Everyday favorite</p>-->
-<!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </ng-template>-->
+        <!--        <ng-template swiperSlide>-->
+        <!--          <div class="list-music-item" [routerLink]="['/deital']">-->
+        <!--            <div class="item-music-image">-->
+        <!--              <img-->
+        <!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
+        <!--                alt="">-->
+        <!--              <div class="position-img">-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>favorite_border</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>play_circle_outline</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>more_horiz</mat-icon>-->
+        <!--                </button>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--            <div class="item-music-name">-->
+        <!--              <p>Everyday favorite</p>-->
+        <!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </ng-template>-->
+        <!--        <ng-template swiperSlide>-->
+        <!--          <div class="list-music-item" [routerLink]="['/deital']">-->
+        <!--            <div class="item-music-image">-->
+        <!--              <img-->
+        <!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
+        <!--                alt="">-->
+        <!--              <div class="position-img">-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>favorite_border</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>play_circle_outline</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>more_horiz</mat-icon>-->
+        <!--                </button>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--            <div class="item-music-name">-->
+        <!--              <p>Everyday favorite</p>-->
+        <!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </ng-template>-->
+        <!--        <ng-template swiperSlide>-->
+        <!--          <div class="list-music-item" [routerLink]="['/deital']">-->
+        <!--            <div class="item-music-image">-->
+        <!--              <img-->
+        <!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
+        <!--                alt="">-->
+        <!--              <div class="position-img">-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>favorite_border</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>play_circle_outline</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>more_horiz</mat-icon>-->
+        <!--                </button>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--            <div class="item-music-name">-->
+        <!--              <p>Everyday favorite</p>-->
+        <!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </ng-template>-->
+        <!--        <ng-template swiperSlide>-->
+        <!--          <div class="list-music-item" [routerLink]="['/deital']">-->
+        <!--            <div class="item-music-image">-->
+        <!--              <img-->
+        <!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
+        <!--                alt="">-->
+        <!--              <div class="position-img">-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>favorite_border</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>play_circle_outline</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>more_horiz</mat-icon>-->
+        <!--                </button>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--            <div class="item-music-name">-->
+        <!--              <p>Everyday favorite</p>-->
+        <!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </ng-template>-->
+        <!--        <ng-template swiperSlide>-->
+        <!--          <div class="list-music-item" [routerLink]="['/deital']">-->
+        <!--            <div class="item-music-image">-->
+        <!--              <img-->
+        <!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
+        <!--                alt="">-->
+        <!--              <div class="position-img">-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>favorite_border</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>play_circle_outline</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>more_horiz</mat-icon>-->
+        <!--                </button>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--            <div class="item-music-name">-->
+        <!--              <p>Everyday favorite</p>-->
+        <!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </ng-template>-->
+        <!--        <ng-template swiperSlide>-->
+        <!--          <div class="list-music-item" [routerLink]="['/deital']">-->
+        <!--            <div class="item-music-image">-->
+        <!--              <img-->
+        <!--                src="https://photo-resize-zmp3.zadn.vn/w320_r1x1_webp/cover/5/1/8/d/518d513f6b09fce0c39f48c1dfc93707.jpg"-->
+        <!--                alt="">-->
+        <!--              <div class="position-img">-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>favorite_border</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>play_circle_outline</mat-icon>-->
+        <!--                </button>-->
+        <!--                <button mat-icon-button aria-label="Example icon-button with a heart icon">-->
+        <!--                  <mat-icon>more_horiz</mat-icon>-->
+        <!--                </button>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--            <div class="item-music-name">-->
+        <!--              <p>Everyday favorite</p>-->
+        <!--              <span class="discript">Enjoy cả ngày với những bản Hits nghe không biết chán là ...</span>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </ng-template>-->
 
 
       </swiper>
