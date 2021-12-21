@@ -11,11 +11,13 @@ import { SidernavComponent } from './component/sidernav/sidernav.component';
 import { PlayCurrentComponent } from './component/play-current/play-current.component';
 import {MatCardModule} from "@angular/material/card";
 import { HomeComponent } from './component/containt-component/home/home.component';
-import { CoverflowSliderComponent } from './component/swiper-slider/coverflow-slider/coverflow-slider.component';
+import { CoverflowSliderComponent } from './component/containt-component/home/swiper-slider/coverflow-slider/coverflow-slider.component';
 import {SwiperModule} from "swiper/angular";
 import { DeitailSongComponent } from './component/containt-component/deitail-song/deitail-song.component';
 import {AudioService} from "./services/audio.service";
 import { HistoryPlayComponent } from './component/history-play/history-play.component';
+import { HighChartComponent } from './component/containt-component/home/high-chart/high-chart.component';
+import {HighchartsChartModule} from "highcharts-angular";
 
 
 
@@ -28,18 +30,20 @@ import { HistoryPlayComponent } from './component/history-play/history-play.comp
     HomeComponent,
     CoverflowSliderComponent,
     DeitailSongComponent,
-    HistoryPlayComponent
+    HistoryPlayComponent,
+    HighChartComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        HttpClientModule,
-        MaterialModule,
-        SwiperModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MaterialModule,
+    SwiperModule,
+    HighchartsChartModule,
 
-    ],
+  ],
   providers: [AudioService],
   bootstrap: [AppComponent]
 })

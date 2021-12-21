@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "highcharts": "^9.3.2",
+    "highcharts-angular": "^3.0.0",
     "moment": "^2.29.1",
     "rxjs": "~6.6.0",
     "swiper": "^7.3.1",
